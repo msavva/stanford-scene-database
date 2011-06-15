@@ -2,8 +2,9 @@
 // main.cpp
 //
 
-#include "glut.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include "glut.h"
 
 #include "sceneViewer.h"
 
@@ -15,7 +16,7 @@ static const int windowHeight = 768;
 
 void TimerTickCallback(int value)
 {
-    g_Viewer->Update();
+    g_Viewer->Update(1.0f / framesPerSecond);
 
     glutPostRedisplay();
 
@@ -80,6 +81,7 @@ int main(int argc, char** argv)
     glutMotionFunc(MouseMotionCallback);
 
     g_Viewer = new SceneViewer;
+    g_Viewer->Init();
     g_Viewer->ReSize(windowWidth, windowHeight);
 
     glutTimerFunc( 16, TimerTickCallback, 0);

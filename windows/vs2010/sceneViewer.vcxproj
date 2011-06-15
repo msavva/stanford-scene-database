@@ -11,10 +11,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\common\Mesh.cpp" />
+    <ClCompile Include="..\..\common\Model.cpp" />
+    <ClCompile Include="..\..\common\Utility.cpp" />
     <ClCompile Include="..\..\sceneViewer\main.cpp" />
     <ClCompile Include="..\..\sceneViewer\sceneViewer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\common\Mesh.h" />
+    <ClInclude Include="..\..\common\Model.h" />
+    <ClInclude Include="..\..\common\Utility.h" />
+    <ClInclude Include="..\..\common\Vec3f.h" />
     <ClInclude Include="..\..\sceneViewer\sceneViewer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -46,7 +53,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>../../bin</OutDir>
+    <OutDir>../../bin/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -58,7 +65,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../include;../../include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;../../common</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -75,12 +82,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../include;../../common</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
