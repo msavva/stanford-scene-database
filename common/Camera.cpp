@@ -9,8 +9,8 @@ void Camera::Reset(const Vec3f &Eye, const Vec3f &Up, const Vec3f &VecLookAt)
     _eye = Eye;
     _worldUp = Up;
     _look = Vec3f::Normalize(_eye - VecLookAt);
-    _right = Vec3f::Normalize(Vec3f::Cross(_worldUp, _look));
-    _up = Vec3f::Normalize(Vec3f::Cross(_look, _right));
+    _right = Vec3f::Normalize(Vec3f::Cross(_look, _worldUp));
+    _up = Vec3f::Normalize(Vec3f::Cross(_right, _look));
 
     Update();
 }

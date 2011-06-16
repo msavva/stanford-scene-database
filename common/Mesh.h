@@ -24,7 +24,7 @@ struct MeshMaterial
         diffuseColor = Vec3f(1.0f, 1.0f, 1.0f);
         transparency = 0.0f;
     }
-    void Set();
+    void Set() const;
     
     GLuint texture;
     Vec3f diffuseColor;
@@ -40,7 +40,6 @@ public:
 
 private:
     GLuint _displayList;
-    MeshMaterial _material;
 };
 
 #endif
