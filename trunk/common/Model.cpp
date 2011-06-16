@@ -20,7 +20,7 @@ Model::Model(const std::string &directory, const std::string &baseFilename)
     MeshMaterial *activeMaterial = NULL;
     for(unsigned int lineIndex = 0; lineIndex < mtlLines.size(); lineIndex++)
     {
-        const std::string &curLine = objLines[lineIndex];
+        const std::string &curLine = mtlLines[lineIndex];
         if(curLine.find("newmtl ") == 0)
         {
             const std::string materialName = curLine.substr(7);
@@ -42,9 +42,11 @@ Model::Model(const std::string &directory, const std::string &baseFilename)
         if(curLine.find("map_Kd ") == 0)
         {
             const std::string textureName = curLine.substr(7);
+            
             //
             // Load the texture
             //
+            activeMaterial->texture = Utility::MakeOpenGLBitmap(directory + textureName);
         }
     }
 
@@ -123,7 +125,6 @@ Model::Model(const std::string &directory, const std::string &baseFilename)
         {
             _meshes[meshIndex]->Render();
         }
-        glEnd();
     }
     glEndList();
 }

@@ -11,7 +11,7 @@ Matrix4 Matrix4::Transpose() const
     {
         for(unsigned int i2 = 0; i2 < 4; i2++)
         {
-            Result[i2][i] = _Entries[i][i2];
+            Result[i2][i] = _entries[i][i2];
         }
     }
     return Result;
@@ -39,9 +39,6 @@ Matrix4 Matrix4::Identity()
 
 Matrix4 Matrix4::Camera(const Vec3f &Eye, const Vec3f &_Look, const Vec3f &_Up, const Vec3f &_Right)
 {
-    //
-    // Verify everything is normalized
-    //
     Vec3f Look = Vec3f::Normalize(_Look);
     Vec3f Up = Vec3f::Normalize(_Up);
     Vec3f Right = Vec3f::Normalize(_Right);
