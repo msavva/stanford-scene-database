@@ -30,7 +30,7 @@ void DisplayCallback()
 
 void KeyboardCallback(unsigned char key, int x, int y)
 {
-    
+    g_Viewer->KeyPress(key);
 }
 
 void ReshapeCallback(int w, int h)

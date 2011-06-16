@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\common\Camera.cpp" />
+    <ClCompile Include="..\..\common\Matrix4.cpp" />
     <ClCompile Include="..\..\common\Mesh.cpp" />
     <ClCompile Include="..\..\common\Model.cpp" />
     <ClCompile Include="..\..\common\Utility.cpp" />
@@ -18,6 +20,8 @@
     <ClCompile Include="..\..\sceneViewer\sceneViewer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\common\Camera.h" />
+    <ClInclude Include="..\..\common\Matrix4.h" />
     <ClInclude Include="..\..\common\Mesh.h" />
     <ClInclude Include="..\..\common\Model.h" />
     <ClInclude Include="..\..\common\Utility.h" />

@@ -2,6 +2,9 @@
 // Vec3f.h
 //
 
+#ifndef __VEC3F_H
+#define __VEC3F_H
+
 #include <math.h>
 
 struct Vec3f
@@ -176,3 +179,5 @@ inline Vec3f operator - (const Vec3f &V)
 {
     return Vec3f(-V.x, -V.y, -V.z);
 }
+
+#endif

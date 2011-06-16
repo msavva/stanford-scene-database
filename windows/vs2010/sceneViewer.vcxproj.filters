@@ -16,6 +16,12 @@
     <ClCompile Include="..\..\sceneViewer\sceneViewer.cpp">
       <Filter>app</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\common\Camera.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\Matrix4.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\common\Vec3f.h">
@@ -32,6 +38,12 @@
     </ClInclude>
     <ClInclude Include="..\..\sceneViewer\sceneViewer.h">
       <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\Camera.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\Matrix4.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
