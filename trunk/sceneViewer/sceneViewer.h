@@ -13,6 +13,10 @@ public:
     void Render();
 
     void KeyPress(unsigned char key);
+
+    void MouseDown(int button, int x, int y);
+    void MouseMove(int x, int y);
+    
     void ReSize(int windowWidth, int windowHeight);
 
 private:
@@ -24,4 +28,6 @@ private:
     Camera _camera;
     Model *_m;
     float _time;
+
+    int _mouseButton, _mouseX, _mouseY;
 };

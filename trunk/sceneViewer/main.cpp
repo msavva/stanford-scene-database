@@ -38,25 +38,15 @@ void ReshapeCallback(int w, int h)
 
 void MouseCallback(int button, int state, int x, int y)
 {
-    /*if (button == GLUT_LEFT_BUTTON || button == GLUT_RIGHT_BUTTON)
+    if (state == GLUT_DOWN)
     {
-        gMouseButton = button;
+        g_Viewer->MouseDown(button, x, y);
     }
-    else
-    {
-        gMouseButton = -1;
-    }
-
-    if (state == GLUT_UP)
-    {
-        gPreviousMouseX = -1;
-        gPreviousMouseY = -1;
-    }*/
 }
 
 void MouseMotionCallback(int x, int y)
 {
-
+    g_Viewer->MouseMove(x, y);
 }
 
 int main(int argc, char** argv)
