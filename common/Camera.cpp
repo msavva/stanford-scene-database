@@ -53,3 +53,8 @@ void Camera::Strafe(float distance)
 {
     _eye += _right * distance;
 }
+
+void Camera::Jump(float distance)
+{
+    _eye += _up * distance;
+}

@@ -33,10 +33,41 @@ void SceneViewer::Update(float seconds)
     _time += seconds;
 }
 
+void SceneViewer::MouseDown(int button, int x, int y)
+{
+    _mouseButton = button;
+    _mouseX = x;
+    _mouseY = y;
+}
+
+void SceneViewer::MouseMove(int x, int y)
+{
+    const float angleScale = 0.02f;
+    const float moveScale = 1.0f;
+
+    const int mouseDiffX = x - _mouseX;
+    const int mouseDiffY = y - _mouseY;
+
+    _mouseX = x;
+    _mouseY = y;
+
+    if(_mouseButton == GLUT_LEFT_BUTTON)
+    {
+        _camera.LookRight(-angleScale * mouseDiffX);
+        _camera.LookUp(angleScale * mouseDiffY);
+    }
+    if(_mouseButton == GLUT_RIGHT_BUTTON)
+    {
+        _camera.Strafe(-moveScale * mouseDiffX);
+        _camera.Jump(-moveScale * mouseDiffY);
+    }
+}
+
 void SceneViewer::KeyPress(unsigned char key)
 {
     const float moveDistance = 15.0f;
     const float angleDistance = 0.15f;
+
     switch(key)
     {
     case 'w':
