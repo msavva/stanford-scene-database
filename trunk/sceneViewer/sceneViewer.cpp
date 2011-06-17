@@ -12,9 +12,6 @@ void SceneViewer::Init()
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 
-    _time = 0.0f;
-    _m = new Model("C:\\SceneModeling\\", "exportTest");
-
     _scene.Load(_params, _params.defaultScene, _assets);
 
     _camera.Reset(Vec3f(100.0f, 100.0f, 100.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 0.0f, 0.0f));
@@ -30,7 +27,7 @@ void SceneViewer::ReSize(int windowWidth, int windowHeight)
 
 void SceneViewer::Update(float seconds)
 {
-    _time += seconds;
+    
 }
 
 void SceneViewer::MouseDown(int button, int x, int y)
@@ -115,9 +112,7 @@ void SceneViewer::Render()
     glMatrixMode(GL_MODELVIEW);
     _camera.Update();
     glLoadMatrixf(_camera.Matrix()[0]);
-    //glRotatef(_time * 180.0f, 1.0f, 0.0f, 0.0f);
 
-    //_m->Render();
     _scene.Render();
 
     glutSwapBuffers();
