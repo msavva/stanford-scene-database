@@ -11,19 +11,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\common\Assets.cpp" />
     <ClCompile Include="..\..\common\Camera.cpp" />
     <ClCompile Include="..\..\common\Matrix4.cpp" />
     <ClCompile Include="..\..\common\Mesh.cpp" />
     <ClCompile Include="..\..\common\Model.cpp" />
+    <ClCompile Include="..\..\common\ModelInstance.cpp" />
+    <ClCompile Include="..\..\common\Scene.cpp" />
     <ClCompile Include="..\..\common\Utility.cpp" />
     <ClCompile Include="..\..\sceneViewer\main.cpp" />
     <ClCompile Include="..\..\sceneViewer\sceneViewer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\common\Assets.h" />
     <ClInclude Include="..\..\common\Camera.h" />
+    <ClInclude Include="..\..\common\Common.h" />
     <ClInclude Include="..\..\common\Matrix4.h" />
     <ClInclude Include="..\..\common\Mesh.h" />
     <ClInclude Include="..\..\common\Model.h" />
+    <ClInclude Include="..\..\common\ModelInstance.h" />
+    <ClInclude Include="..\..\common\Scene.h" />
     <ClInclude Include="..\..\common\Utility.h" />
     <ClInclude Include="..\..\common\Vec3f.h" />
     <ClInclude Include="..\..\sceneViewer\sceneViewer.h" />
@@ -61,6 +68,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>../../bin/</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

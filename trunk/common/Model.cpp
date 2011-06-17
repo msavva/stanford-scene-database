@@ -2,7 +2,7 @@
 // Model.cpp
 //
 
-#include "Model.h"
+#include "Common.h"
 
 Model::Model(const std::string &directory, const std::string &baseFilename)
 {

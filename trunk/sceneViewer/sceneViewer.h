@@ -2,8 +2,7 @@
 // SceneViewer.h
 //
 
-#include "Model.h"
-#include "Camera.h"
+#include "Common.h"
 
 class SceneViewer
 {
@@ -19,6 +18,7 @@ public:
 private:
     int _windowWidth, _windowHeight;
 
+    Scene _scene;
     Camera _camera;
     Model *_m;
     float _time;

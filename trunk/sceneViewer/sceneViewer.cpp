@@ -2,8 +2,8 @@
 // SceneViewer.cpp
 //
 
+#include "Common.h"
 #include "sceneViewer.h"
-#include "Mesh.h"
 
 void SceneViewer::Init()
 {
@@ -28,8 +28,8 @@ void SceneViewer::Update(float seconds)
 
 void SceneViewer::KeyPress(unsigned char key)
 {
-    const float moveDistance = 10.0f;
-    const float angleDistance = 0.25f;
+    const float moveDistance = 15.0f;
+    const float angleDistance = 0.15f;
     switch(key)
     {
     case 'w':
@@ -72,7 +72,7 @@ void SceneViewer::Render()
     glLoadIdentity();
 
     float aspectRatio = float(_windowWidth) / float(_windowHeight);
-    gluPerspective(80.0f, aspectRatio, 0.1f, 1000.0f);
+    gluPerspective(60.0f, aspectRatio, 0.1f, 1000.0f);
   
     glMatrixMode(GL_MODELVIEW);
     _camera.Update();

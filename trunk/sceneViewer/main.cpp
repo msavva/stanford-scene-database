@@ -2,9 +2,7 @@
 // main.cpp
 //
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "glut.h"
+#include "Common.h"
 
 #include "sceneViewer.h"
 

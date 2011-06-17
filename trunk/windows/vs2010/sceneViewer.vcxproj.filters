@@ -22,6 +22,15 @@
     <ClCompile Include="..\..\common\Matrix4.cpp">
       <Filter>common</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\common\Scene.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\ModelInstance.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\common\Assets.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\common\Vec3f.h">
@@ -43,6 +52,18 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\common\Matrix4.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\Scene.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\ModelInstance.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\Assets.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\Common.h">
       <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>

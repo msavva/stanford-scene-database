@@ -2,7 +2,7 @@
 // Camera.h
 //
 
-#include "Matrix4.h"
+#include "Common.h"
 
 class Camera
 {
