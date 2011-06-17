@@ -17,6 +17,7 @@
     <ClCompile Include="..\..\common\Mesh.cpp" />
     <ClCompile Include="..\..\common\Model.cpp" />
     <ClCompile Include="..\..\common\ModelInstance.cpp" />
+    <ClCompile Include="..\..\common\Parameters.cpp" />
     <ClCompile Include="..\..\common\Scene.cpp" />
     <ClCompile Include="..\..\common\Utility.cpp" />
     <ClCompile Include="..\..\sceneViewer\main.cpp" />
@@ -30,6 +31,7 @@
     <ClInclude Include="..\..\common\Mesh.h" />
     <ClInclude Include="..\..\common\Model.h" />
     <ClInclude Include="..\..\common\ModelInstance.h" />
+    <ClInclude Include="..\..\common\Parameters.h" />
     <ClInclude Include="..\..\common\Scene.h" />
     <ClInclude Include="..\..\common\Utility.h" />
     <ClInclude Include="..\..\common\Vec3f.h" />

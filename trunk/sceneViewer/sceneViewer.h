@@ -18,6 +18,8 @@ public:
 private:
     int _windowWidth, _windowHeight;
 
+    Parameters _params;
+    Assets _assets;
     Scene _scene;
     Camera _camera;
     Model *_m;

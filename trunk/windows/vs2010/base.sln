@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sceneViewer", "sceneViewer.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE5FEC61-00A8-4D02-B0EC-E7E670295199}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\bin\parameters.txt = ..\..\bin\parameters.txt
+		..\..\databaseSample\scenes\SceneA.txt = ..\..\databaseSample\scenes\SceneA.txt
 		..\..\TODO.txt = ..\..\TODO.txt
 	EndProjectSection
 EndProject

@@ -7,10 +7,12 @@
 class ModelInstance
 {
 public:
-    ModelInstance(Model *model, const Matrix4 &transform)
+    friend class Scene;
+
+    ModelInstance()
     {
-        _model = model;
-        _transform = transform;
+        _model = NULL;
+        _parent = NULL;
     }
     void AddChild(ModelInstance *child)
     {
@@ -20,6 +22,13 @@ public:
 
 private:
     Model *_model;
-    Matrix4 _transform;
+    
+    ModelInstance *_parent;
     std::vector<ModelInstance*> _children;
+
+    Matrix4 _transform;
+
+    Vec3f _parentContactPosition;
+    Vec3f _parentContactNormal;
+    Vec3f _parentOffset;
 };
