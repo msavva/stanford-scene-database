@@ -2,7 +2,7 @@
 // Utility.cpp
 //
 
-#include "Utility.h"
+#include "Common.h"
 
 std::vector<std::string> Utility::GetFileLines(const std::string &filename, unsigned int minLineLength)
 {

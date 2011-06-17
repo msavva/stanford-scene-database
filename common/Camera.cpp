@@ -2,7 +2,7 @@
 // Camera.cpp
 //
 
-#include "Camera.h"
+#include "Common.h"
 
 void Camera::Reset(const Vec3f &Eye, const Vec3f &Up, const Vec3f &VecLookAt)
 {

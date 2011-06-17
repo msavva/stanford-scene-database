@@ -2,11 +2,7 @@
 // Utility.h
 //
 
-#include <vector>
-#include <string>
-#include <fstream>
-#include <iostream>
-#include "glut.h"
+#include "Common.h"
 
 namespace Utility
 {

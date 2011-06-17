@@ -2,7 +2,7 @@
 // SceneViewer.cpp
 //
 
-#include "Mesh.h"
+#include "Common.h"
 
 void MeshMaterial::Set() const
 {

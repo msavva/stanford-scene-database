@@ -5,10 +5,7 @@
 #ifndef __MESH_H
 #define __MESH_H
 
-#include <stdlib.h>
-#include "glut.h"
-#include "Vec3f.h"
-#include <vector>
+#include "Common.h"
 
 struct MeshVertex
 {

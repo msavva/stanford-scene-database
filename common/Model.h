@@ -2,11 +2,7 @@
 // Model.h
 //
 
-#include "Mesh.h"
-#include "Utility.h"
-#include <iostream>
-#include <sstream>
-#include <map>
+#include "Common.h"
 
 class Model
 {
