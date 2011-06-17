@@ -106,6 +106,8 @@ GLuint Utility::MakeOpenGLBitmap(const std::string &filename)
 {
 #ifdef WIN32
     std::string commandLine = "../windows/exe/convert.exe " + filename + " temp.bmp";
+#else
+    std::string commandLine = "convert.exe " + filename + " temp.bmp";
 #endif
     Utility::ExecuteCommand(commandLine.c_str());
 
@@ -255,5 +257,10 @@ void Utility::ExecuteCommand(const char *command)
     // Close process and thread handles. 
     CloseHandle( pi.hProcess );
     CloseHandle( pi.hThread );
+}
+#else
+void Utility::ExecuteCommand(const char *command)
+{
+    system(command);
 }
 #endif
