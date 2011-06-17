@@ -61,8 +61,7 @@ void MouseMotionCallback(int x, int y)
 
 int main(int argc, char** argv)
 {
-    
-    printf("Scene Viewer\n");
+    std::cout << "Scene Viewer\n";
 
     glutInit(&argc, argv);
     glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);

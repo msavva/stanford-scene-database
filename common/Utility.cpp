@@ -20,6 +20,88 @@ std::vector<std::string> Utility::GetFileLines(const std::string &filename, unsi
     return result;
 }
 
+std::vector<std::string> Utility::PartitionString(const std::string &s, const std::string &separator)
+{
+    std::vector<std::string> result;
+    std::string curEntry;
+    for(unsigned int outerCharacterIndex = 0; outerCharacterIndex < s.length(); outerCharacterIndex++)
+    {
+        bool isSeperator = true;
+        for(unsigned int innerCharacterIndex = 0; innerCharacterIndex < separator.length() && outerCharacterIndex + innerCharacterIndex < s.length() && isSeperator; innerCharacterIndex++)
+        {
+            if(s[outerCharacterIndex + innerCharacterIndex] != separator[innerCharacterIndex])
+            {
+                isSeperator = false;
+            }
+        }
+
+        if(isSeperator)
+        {
+            if(curEntry.length() > 0)
+            {
+                result.push_back(curEntry);
+                curEntry.clear();
+            }
+            outerCharacterIndex += separator.length() - 1;
+        }
+        else
+        {
+            curEntry.push_back(s[outerCharacterIndex]);
+        }
+    }
+    if(curEntry.length() > 0)
+    {
+        result.push_back(curEntry);
+    }
+    return result;
+}
+
+int Utility::StringToInt(const std::string &s)
+{
+    std::stringstream stream(std::stringstream::in | std::stringstream::out);
+    stream << s;
+    
+    int result;
+    stream >> result;
+    return result;
+}
+
+float Utility::StringToFloat(const std::string &s)
+{
+    std::stringstream stream(std::stringstream::in | std::stringstream::out);
+    stream << s;
+
+    float result;
+    stream >> result;
+    return result;
+}
+
+std::vector<int> Utility::StringToIntegerList(const std::string &s, const std::string &prefix)
+{
+    std::string subString = Utility::PartitionString(s, prefix)[0];
+    auto parts = Utility::PartitionString(subString, " ");
+
+    std::vector<int> result(parts.size());
+    for(unsigned int resultIndex = 0; resultIndex < result.size(); resultIndex++)
+    {
+        result[resultIndex] = Utility::StringToInt(parts[resultIndex]);
+    }
+    return result;
+}
+
+std::vector<float> Utility::StringToFloatList(const std::string &s, const std::string &prefix)
+{
+    std::string subString = Utility::PartitionString(s, prefix)[0];
+    auto parts = Utility::PartitionString(subString, " ");
+
+    std::vector<float> result(parts.size());
+    for(unsigned int resultIndex = 0; resultIndex < result.size(); resultIndex++)
+    {
+        result[resultIndex] = Utility::StringToFloat(parts[resultIndex]);
+    }
+    return result;
+}
+
 GLuint Utility::MakeOpenGLBitmap(const std::string &filename)
 {
 #ifdef WIN32
@@ -85,6 +167,35 @@ GLuint Utility::MakeOpenGLBitmap(const std::string &filename)
                 ((unsigned char *)&curColor)[2] = dataStore[dataIndex++];
                 ((unsigned char *)&curColor)[1] = dataStore[dataIndex++];
                 ((unsigned char *)&curColor)[0] = dataStore[dataIndex++];
+                bitmapData[y * width + x] = curColor;
+            }
+            dataIndex += excessPitch;
+        }
+
+        delete[] dataStore;
+    }
+    else if(bmih.biBitCount == 8)
+    {
+        unsigned int pitch = width;
+        unsigned int excessPitch = 0;
+        while(double(pitch / 4) != double(pitch) / 4.0)
+        {
+            pitch++;
+            excessPitch++;
+        }
+
+        unsigned char *dataStore = new unsigned char[pitch * height];
+        fread(dataStore, 1, pitch * height, file);
+
+        unsigned int dataIndex = 0;
+        for(unsigned int y = 0; y < height; y++)
+        {
+            for(unsigned int x = 0; x < width; x++)
+            {
+                unsigned int curColor = 0;
+                ((unsigned char *)&curColor)[0] = dataStore[dataIndex];
+                ((unsigned char *)&curColor)[1] = dataStore[dataIndex];
+                ((unsigned char *)&curColor)[2] = dataStore[dataIndex++];
                 bitmapData[y * width + x] = curColor;
             }
             dataIndex += excessPitch;

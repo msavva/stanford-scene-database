@@ -1,0 +1,2 @@
+databaseDirectory=../databaseSample
+defaultScene=SceneA

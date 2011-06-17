@@ -25,6 +25,7 @@
 // Utility
 //
 #include "Utility.h"
+#include "Parameters.h"
 
 //
 // Geometry and textures
