@@ -68,6 +68,17 @@ Model::Model(const std::string &directory, const std::string &baseFilename)
             std::stringstream stream(std::stringstream::in | std::stringstream::out);
             stream << curLine.substr(2);
             stream >> curVertex.position.x >> curVertex.position.y >> curVertex.position.z;
+
+            if(vertices.size() == 1)
+            {
+                _boundingBoxMin = curVertex.position;
+                _boundingBoxMax = curVertex.position;
+            }
+            else
+            {
+                _boundingBoxMin = Vec3f::Minimize(_boundingBoxMin, curVertex.position);
+                _boundingBoxMax = Vec3f::Maximize(_boundingBoxMax, curVertex.position);
+            }
         }
         if(curLine[0] == 'v' && curLine[1] == 't')
         {
