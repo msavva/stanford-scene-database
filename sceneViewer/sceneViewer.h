@@ -26,8 +26,6 @@ private:
     Assets _assets;
     Scene _scene;
     Camera _camera;
-    Model *_m;
-    float _time;
 
     int _mouseButton, _mouseX, _mouseY;
 };
