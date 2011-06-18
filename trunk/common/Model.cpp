@@ -80,18 +80,26 @@ Model::Model(const std::string &directory, const std::string &baseFilename)
         {
             std::stringstream stream(std::stringstream::in | std::stringstream::out);
 
-            std::string curLineCopy = curLine.substr(2);
-            for(unsigned int charIndex = 0; charIndex < curLineCopy.size(); charIndex++)
+            unsigned int index0, index1, index2;
+            if(curLine.find('/') == std::string::npos)
             {
-                if(curLineCopy[charIndex] == '/')
-                {
-                    curLineCopy[charIndex] = ' ';
-                }
+                stream << curLine.substr(2);
+                stream >> index0 >> index1 >> index2;
             }
-            stream << curLineCopy;
-
-            unsigned int index0, temp0, index1, temp1, index2, temp2;
-            stream >> index0 >> temp0 >> index1 >> temp1 >> index2 >> temp2;
+            else
+            {
+                std::string curLineCopy = curLine.substr(2);
+                for(unsigned int charIndex = 0; charIndex < curLineCopy.size(); charIndex++)
+                {
+                    if(curLineCopy[charIndex] == '/')
+                    {
+                        curLineCopy[charIndex] = ' ';
+                    }
+                }
+                stream << curLineCopy;
+                unsigned int temp0, temp1, temp2;
+                stream >> index0 >> temp0 >> index1 >> temp1 >> index2 >> temp2;
+            }
             indices.push_back(index0 - 1);
             indices.push_back(index1 - 1);
             indices.push_back(index2 - 1);
