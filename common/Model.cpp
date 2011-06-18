@@ -7,6 +7,9 @@
 Model::Model(const std::string &directory, const std::string &baseFilename)
 {
     std::cout << "  Loading model: " << baseFilename << '\n';
+
+    _hash = baseFilename;
+
     //
     // Note that this obj loader is not designed to function on all possible obj files, and does not handle improperly formatted files correctly
     //

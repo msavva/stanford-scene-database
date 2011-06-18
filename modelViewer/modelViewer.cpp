@@ -13,7 +13,8 @@ void ModelViewer::Init()
 
     _camera.Reset(Vec3f(100.0f, 100.0f, 100.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 0.0f, 0.0f));
 
-    std::cout << "Initialization done\n";
+    _database.Init(_params);
+    _activeModel = _assets.GetModel(_params, _database.Entries().begin()->first);
 
     std::cout << "\n[W/A/S/D/R/F]: Translate camera\n";
     std::cout << "[2/4/6/8]: Look around\n";
@@ -128,4 +129,16 @@ void ModelViewer::Render()
     _activeModel->Render();
 
     glutSwapBuffers();
+}
+
+void ModelViewer::WriteModelInfo()
+{
+    const ModelEntry &curEntry = _database.GetEntry(_activeModel->Hash());
+    std::cout << "Model Hash: " << curEntry.hash << '\n';
+    std::cout << "Name: " << curEntry.name << '\n';
+    std::cout << "Tags:\n";
+    for(auto tagIterator = curEntry.tags.begin(); tagIterator != curEntry.tags.end(); tagIterator++)
+    {
+        std::cout << *tagIterator << '\n';
+    }
 }

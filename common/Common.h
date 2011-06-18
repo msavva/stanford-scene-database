@@ -11,8 +11,10 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 #include <stdlib.h>
+#include <time.h>
 
 #include "glut.h"
 
@@ -33,6 +35,7 @@
 #include "Mesh.h"
 #include "Model.h"
 #include "ModelInstance.h"
+#include "ModelDatabase.h"
 #include "Assets.h"
 #include "Camera.h"
 #include "Scene.h"

@@ -34,6 +34,9 @@
     <ClCompile Include="..\..\modelViewer\modelViewer.cpp">
       <Filter>app</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\common\ModelDatabase.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\common\Vec3f.h">
@@ -71,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="..\..\modelViewer\modelViewer.h">
       <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\ModelDatabase.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
