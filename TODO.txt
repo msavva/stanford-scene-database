@@ -1,13 +1,8 @@
 make linux build infrastructure: test under Mac, Cygwin, Linux
-convert scenes from SceneStudio format into SceneDatabase format: more elaborate naming convention, unneeded stuff thrown out, expand transforms to ASCII
-Load SceneDatabase format into sceneViewer
-convert models from SceneStudio format into SceneDatabase format: use obj
-Load objs into sceneViewer and modelViewer
 Make field files
   - tags, names, description, downloads/views, textures, Zernike descriptor
 
 Write modelViewer and sceneViewer interfaces
   - look at font rendering
-  - camera interface
   - toggle through scenes
   - load fields

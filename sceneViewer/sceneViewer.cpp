@@ -9,14 +9,19 @@ void SceneViewer::Init()
 {
     _params.Init("parameters.txt");
 
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+    std::cout << "Usage: Modify parameters.txt to change which scene is loaded\n";
 
     _scene.Load(_params, _params.defaultScene, _assets);
 
     _camera.Reset(Vec3f(100.0f, 100.0f, 100.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 0.0f, 0.0f));
 
     std::cout << "Initialization done\n";
+
+    std::cout << "\n[W/A/S/D/R/F]: Translate camera\n";
+    std::cout << "[2/4/6/8]: Look around\n";
+    std::cout << "[Left mouse drag]: Look around\n";
+    std::cout << "[Right mouse drag]: Pan camera\n";
+    
 }
 
 void SceneViewer::ReSize(int windowWidth, int windowHeight)
@@ -79,6 +84,12 @@ void SceneViewer::KeyPress(unsigned char key)
     case 'd':
         _camera.Strafe(-moveDistance);
         break;
+    case 'r':
+        _camera.Jump(moveDistance);
+        break;
+    case 'f':
+        _camera.Jump(-moveDistance);
+        break;
     case '2':
         _camera.LookUp(angleDistance);
         break;
@@ -102,6 +113,9 @@ void SceneViewer::Render()
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, _windowWidth, _windowHeight);
+
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
