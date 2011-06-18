@@ -20,11 +20,14 @@ public:
     void ReSize(int windowWidth, int windowHeight);
 
 private:
+    void WriteModelInfo();
+
     int _windowWidth, _windowHeight;
 
     Parameters _params;
     Assets _assets;
     Camera _camera;
+    ModelDatabase _database;
 
     Model *_activeModel;
 

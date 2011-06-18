@@ -1,6 +1,5 @@
 make linux build infrastructure: test under Mac, Cygwin, Linux
-Make field files
-  - tags, names, description, downloads/views, textures, Zernike descriptor
+make README
 
 Write modelViewer and sceneViewer interfaces
   - look at font rendering

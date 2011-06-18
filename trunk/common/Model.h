@@ -14,17 +14,25 @@ public:
     //
     // Accessors
     //
-    inline const Vec3f& boundingBoxMin()
+    inline const Vec3f& BoundingBoxMin()
     {
         return _boundingBoxMin;
     }
-    inline const Vec3f& boundingBoxMax()
+    inline const Vec3f& BoundingBoxMax()
     {
         return _boundingBoxMax;
+    }
+    inline const std::string& Hash()
+    {
+        return _hash;
     }
 
 private:
     GLuint _displayList;
+
     std::vector<Mesh*> _meshes;
+    
+    std::string _hash;
+    
     Vec3f _boundingBoxMin, _boundingBoxMax;
 };

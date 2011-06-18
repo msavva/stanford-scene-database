@@ -16,6 +16,7 @@
     <ClCompile Include="..\..\common\Matrix4.cpp" />
     <ClCompile Include="..\..\common\Mesh.cpp" />
     <ClCompile Include="..\..\common\Model.cpp" />
+    <ClCompile Include="..\..\common\ModelDatabase.cpp" />
     <ClCompile Include="..\..\common\ModelInstance.cpp" />
     <ClCompile Include="..\..\common\Parameters.cpp" />
     <ClCompile Include="..\..\common\Scene.cpp" />
@@ -30,6 +31,7 @@
     <ClInclude Include="..\..\common\Matrix4.h" />
     <ClInclude Include="..\..\common\Mesh.h" />
     <ClInclude Include="..\..\common\Model.h" />
+    <ClInclude Include="..\..\common\ModelDatabase.h" />
     <ClInclude Include="..\..\common\ModelInstance.h" />
     <ClInclude Include="..\..\common\Parameters.h" />
     <ClInclude Include="..\..\common\Scene.h" />

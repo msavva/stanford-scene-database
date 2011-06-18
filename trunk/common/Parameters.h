@@ -10,4 +10,6 @@ struct Parameters
 
     std::string databaseDirectory;
     std::string defaultScene;
+
+    std::string textQuery;
 };

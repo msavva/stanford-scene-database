@@ -1,2 +1,3 @@
 databaseDirectory=../databaseSample
 defaultScene=SceneA
+textQuery=@
