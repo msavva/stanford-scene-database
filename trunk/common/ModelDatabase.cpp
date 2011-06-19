@@ -91,7 +91,7 @@ std::vector<const ModelEntry*> ModelDatabase::TextQuery(const std::string &query
             for(auto tagIterator = newEntry.entry->tags.begin(); tagIterator != newEntry.entry->tags.end(); tagIterator++)
             {
                 const std::string &curTag = *tagIterator;
-                if(curTag.find(curTag) != std::string::npos)
+                if(curTag.find(query) != std::string::npos)
                 {
                     newEntry.value += 1.0f;
                     if(curTag.length() == query.length())
