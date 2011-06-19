@@ -1,7 +1,6 @@
 make linux build infrastructure: test under Mac, Cygwin, Linux
-make README
 
 Write modelViewer and sceneViewer interfaces
-  - look at font rendering
   - toggle through scenes
-  - load fields
+  - scene screenshots?
+  - rename scenes

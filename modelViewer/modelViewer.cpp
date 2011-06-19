@@ -16,6 +16,8 @@ void ModelViewer::Init()
 
     _database.Init(_params);
 
+    std::cout << "\nLoading database from " << _params.databaseDirectory << '\n\n';
+
     _modelList = _database.TextQuery(_params.textQuery);
 
     _activeModelIndex = 0;
@@ -25,6 +27,8 @@ void ModelViewer::Init()
     std::cout << "[2/4/6/8]: Look around\n";
     std::cout << "[Left mouse drag]: Look around\n";
     std::cout << "[Right mouse drag]: Pan camera\n\n";
+    std::cout << "[Left Arrow]: Select previous model\n";
+    std::cout << "[Right Arrow]: Select next model\n";
 
     WriteModelInfo();
 }

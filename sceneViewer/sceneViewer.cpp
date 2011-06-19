@@ -13,7 +13,7 @@ void SceneViewer::Init()
 
     _scene.Load(_params, _params.defaultScene, _assets);
 
-    _camera.Reset(Vec3f(100.0f, 100.0f, 100.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 0.0f, 0.0f));
+    _camera.Reset(Vec3f(172.35596f, 64.303215f, 142.52835f), Vec3f(-0.47448456f, 0.13367102f, 0.87005711f), Vec3f(172.35596f - 0.83745980f, 64.303215f + 0.23592833f, 142.52835f - 0.49295229f));
 
     std::cout << "Initialization done\n";
 
