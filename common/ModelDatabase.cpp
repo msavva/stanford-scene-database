@@ -101,6 +101,7 @@ std::vector<const ModelEntry*> ModelDatabase::TextQuery(const std::string &query
                 }
             }
         }
+        allEntries.push_back(newEntry);
     }
 
     std::sort(allEntries.begin(), allEntries.end(), sorter);

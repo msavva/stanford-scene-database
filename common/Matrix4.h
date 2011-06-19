@@ -62,22 +62,23 @@ public:
     // Transformation matrices
     //
     static Matrix4 Identity();
-    static Matrix4 Scaling(const Vec3f &ScaleFactors);
-    static Matrix4 Scaling(float ScaleFactor)
+    static Matrix4 Scaling(const Vec3f &scaleFactors);
+    static Matrix4 Scaling(float scaleFactor)
     {
-        return Scaling(Vec3f(ScaleFactor, ScaleFactor, ScaleFactor));
+        return Scaling(Vec3f(scaleFactor, scaleFactor, scaleFactor));
     }
-    static Matrix4 Translation(const Vec3f &Pos);
-    static Matrix4 Rotation(const Vec3f &Axis, float Angle, const Vec3f &Center);
-    static Matrix4 Rotation(const Vec3f &Axis, float Angle);
-    static Matrix4 RotationX(float Theta);
-    static Matrix4 RotationY(float Theta);
-    static Matrix4 RotationZ(float Theta);
-    static Matrix4 Camera(const Vec3f &Eye, const Vec3f &Look, const Vec3f &Up, const Vec3f &Right);
-    static Matrix4 PerspectiveFov(float FOV, float Aspect, float ZNear, float ZFar);
+    static Matrix4 Translation(const Vec3f &pos);
+    static Matrix4 Rotation(const Vec3f &axis, float angle, const Vec3f &center);
+    static Matrix4 Rotation(const Vec3f &axis, float angle);
+    static Matrix4 RotationX(float theta);
+    static Matrix4 RotationY(float theta);
+    static Matrix4 RotationZ(float theta);
+    static Matrix4 Camera(const Vec3f &eye, const Vec3f &look, const Vec3f &up, const Vec3f &right);
+    static Matrix4 PerspectiveFov(float FOV, float aspect, float zNear, float zFar);
+    static Matrix4 BoundingBoxToUnitSphere(const Vec3f &boundingBoxMin, const Vec3f &boundingBoxMax);
 
 private:
     float _entries[4][4];
 };
 
-Matrix4 operator * (const Matrix4 &Left, const Matrix4 &Right);
+Matrix4 operator * (const Matrix4 &left, const Matrix4 &right);

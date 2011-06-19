@@ -6,6 +6,7 @@
 
 namespace Utility
 {
+    bool FileExists(const std::string &filename);
     std::vector<std::string> GetFileLines(const std::string &filename, unsigned int minLineLength);
     
     std::vector<std::string> PartitionString(const std::string &s, const std::string &separator);

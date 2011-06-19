@@ -238,3 +238,11 @@ Matrix4 operator * (const Matrix4 &Left, const Matrix4 &Right)
     }
     return Result;
 }
+
+Matrix4 Matrix4::BoundingBoxToUnitSphere(const Vec3f &boundingBoxMin, const Vec3f &boundingBoxMax)
+{
+    Vec3f center = (boundingBoxMin + boundingBoxMax) * 0.5f;
+    Vec3f variance = boundingBoxMax - center;
+
+    return Matrix4::Translation(-center) * Matrix4::Scaling(1.0f / variance.Length());
+}

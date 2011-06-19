@@ -9,18 +9,24 @@ void ModelViewer::Init()
 {
     _params.Init("parameters.txt");
 
-    std::cout << "Usage: Modify parameters.txt to change which scene is loaded\n";
+    std::cout << "Usage: Modify textQuery in parameters.txt to change the order models appear.\n";
+    std::cout << "       Use textQuery=@ to display models in random order.\n";
 
-    _camera.Reset(Vec3f(100.0f, 100.0f, 100.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 0.0f, 0.0f));
+    _camera.Reset(Vec3f(-27.753f, -74.510f, 40.714f), Vec3f(0.15484311f, 0.47713223f, 0.86508425f), Vec3f(0.0f, 0.0f, 0.0f));
 
     _database.Init(_params);
-    _activeModel = _assets.GetModel(_params, _database.Entries().begin()->first);
+
+    _modelList = _database.TextQuery(_params.textQuery);
+
+    _activeModelIndex = 0;
+    _activeModel = _assets.GetModel(_params, _modelList[_activeModelIndex]->hash);
 
     std::cout << "\n[W/A/S/D/R/F]: Translate camera\n";
     std::cout << "[2/4/6/8]: Look around\n";
     std::cout << "[Left mouse drag]: Look around\n";
-    std::cout << "[Right mouse drag]: Pan camera\n";
-    
+    std::cout << "[Right mouse drag]: Pan camera\n\n";
+
+    WriteModelInfo();
 }
 
 void ModelViewer::ReSize(int windowWidth, int windowHeight)
@@ -64,7 +70,7 @@ void ModelViewer::MouseMove(int x, int y)
     }
 }
 
-void ModelViewer::KeyPress(unsigned char key)
+void ModelViewer::ASCIIKeyPress(unsigned char key)
 {
     const float moveDistance = 15.0f;
     const float angleDistance = 0.15f;
@@ -107,6 +113,34 @@ void ModelViewer::KeyPress(unsigned char key)
     }
 }
 
+void ModelViewer::SpecialKeyPress(int key)
+{
+    switch(key)
+    {
+    case GLUT_KEY_RIGHT:
+        _activeModelIndex++;
+        if(_activeModelIndex == _modelList.size())
+        {
+            _activeModelIndex = 0;
+        }
+        _activeModel = _assets.GetModel(_params, _modelList[_activeModelIndex]->hash);
+        WriteModelInfo();
+        break;
+    case GLUT_KEY_LEFT:
+        _activeModelIndex--;
+        if(_activeModelIndex == -1)
+        {
+            _activeModelIndex = _modelList.size() - 1;
+        }
+        _activeModel = _assets.GetModel(_params, _modelList[_activeModelIndex]->hash);
+        WriteModelInfo();
+        break;
+    default:
+        //std::cout << key << std::endl;
+        break;
+    }
+}
+
 void ModelViewer::Render()
 {
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -124,7 +158,9 @@ void ModelViewer::Render()
   
     glMatrixMode(GL_MODELVIEW);
     _camera.Update();
-    glLoadMatrixf(_camera.Matrix()[0]);
+    Matrix4 modelNormalizationMatrix = Matrix4::BoundingBoxToUnitSphere(_activeModel->BoundingBoxMin(), _activeModel->BoundingBoxMax()) * Matrix4::Scaling(50.0f);
+    Matrix4 finalMatrix = modelNormalizationMatrix * _camera.Matrix();
+    glLoadMatrixf(finalMatrix[0]);
 
     _activeModel->Render();
 
@@ -134,6 +170,7 @@ void ModelViewer::Render()
 void ModelViewer::WriteModelInfo()
 {
     const ModelEntry &curEntry = _database.GetEntry(_activeModel->Hash());
+    std::cout << "Model " << _activeModelIndex << " / " << _modelList.size() << '\n';
     std::cout << "Model Hash: " << curEntry.hash << '\n';
     std::cout << "Name: " << curEntry.name << '\n';
     std::cout << "Tags:\n";

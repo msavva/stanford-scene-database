@@ -12,7 +12,8 @@ public:
     void Update(float seconds);
     void Render();
 
-    void KeyPress(unsigned char key);
+    void ASCIIKeyPress(unsigned char key);
+    void SpecialKeyPress(int key);
 
     void MouseDown(int button, int x, int y);
     void MouseMove(int x, int y);
@@ -29,7 +30,10 @@ private:
     Camera _camera;
     ModelDatabase _database;
 
+    std::vector<const ModelEntry*> _modelList;
+
     Model *_activeModel;
+    int _activeModelIndex;
 
     int _mouseButton, _mouseX, _mouseY;
 };

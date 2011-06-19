@@ -4,8 +4,19 @@
 
 #include "Common.h"
 
+bool Utility::FileExists(const std::string &filename)
+{
+    std::ifstream file(filename);
+    return (!file.fail());
+}
+
 std::vector<std::string> Utility::GetFileLines(const std::string &filename, unsigned int minLineLength)
 {
+    if(!Utility::FileExists(filename))
+    {
+        std::cout << "Required file not found: " << filename << '\n';
+        exit(1);
+    }
     std::ifstream file(filename);
     std::vector<std::string> result;
     std::string curLine;
