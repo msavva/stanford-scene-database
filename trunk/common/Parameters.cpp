@@ -24,7 +24,7 @@ void Parameters::Init(const std::string &filename)
         }
         if(curLine.find("textQuery") == 0)
         {
-            defaultScene = Utility::PartitionString(curLine, "=")[1];
+            textQuery = Utility::PartitionString(curLine, "=")[1];
         }
     }
 }

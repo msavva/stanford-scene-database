@@ -28,7 +28,12 @@ void DisplayCallback()
 
 void KeyboardCallback(unsigned char key, int x, int y)
 {
-    g_Viewer->KeyPress(key);
+    g_Viewer->ASCIIKeyPress(key);
+}
+
+void SpecialCallback(int key, int x, int y)
+{
+    g_Viewer->SpecialKeyPress(key);
 }
 
 void ReshapeCallback(int w, int h)
@@ -63,6 +68,7 @@ int main(int argc, char** argv)
 
     glutDisplayFunc(DisplayCallback);
     glutKeyboardFunc(KeyboardCallback);
+    glutSpecialFunc(SpecialCallback);
     glutReshapeFunc(ReshapeCallback);
     glutMouseFunc(MouseCallback);
     glutMotionFunc(MouseMotionCallback);
