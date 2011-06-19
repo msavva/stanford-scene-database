@@ -35,8 +35,6 @@ We somtimes accepted models that contained multiple objects, if the collection i
 All files on Google 3D Warehouse are referenced using a unique model ID that is a hash of the model's SketchUp file and the user who uploaded it.
 We use these hashes internally as well, so it is easy to recover information about a particular model from Google Warehouse.
 
-<give approximate database size at each level here>
-
 **** 2. Database Files
 
 There are four folders in the database:
@@ -45,10 +43,17 @@ There are four folders in the database:
  - scenes: Contains scene file descriptions for all files in the database.  Scenes come in two format, *.scs, which is used by SceneStudio, and *.txt, which is a simpler file format used by the code in this project.
  - fields: A list of the name and tags for each model, indexed by Google model ID.
 
- We provide three different databases:
- "databaseSample" contains a single scene and is meant for testing purposes (~11MB).
- "databaseObserved" contains all scenes users have modeled, but only those models in the database that occur in at least one scene (~2.7GB, uncompressed).
- "databaseFull" contains all scenes users have modeled, and all models in the model database (~20GB, uncompressed).
+We provide three different databases:
+"databaseSample" contains a single scene and is meant for testing purposes (~11MB). This is part of the svn checkout.
+"databaseObserved" contains all scenes users have modeled, but only those models in the database that occur in at least one scene (~2.7GB, uncompressed). You can download this here:
+"databaseFull" contains all scenes users have modeled, and all models in the model database (~20GB, uncompressed). 
+
+Here is an approximate size estimate for the database (this may be out of date):
+28,985 models downloaded from Google Warehouse
+11,165 models marked as "isolated objects"
+139 scenes 
+3728 objects instances
+1606 unique model instances
 
 **** 3. Code Structure
 
