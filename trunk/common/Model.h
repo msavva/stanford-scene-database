@@ -4,10 +4,11 @@
 
 #include "Common.h"
 
+class Assets;
 class Model
 {
 public:
-    Model(const std::string &directory, const std::string &baseFilename);
+    Model(const std::string &directory, const std::string &baseFilename, Assets &textureStore);
 
     void Render();
 

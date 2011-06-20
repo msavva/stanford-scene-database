@@ -4,7 +4,7 @@
 
 #include "Common.h"
 
-Model::Model(const std::string &directory, const std::string &baseFilename)
+Model::Model(const std::string &directory, const std::string &baseFilename, Assets &textureStore)
 {
     std::cout << "  Loading model: " << baseFilename << '\n';
 
@@ -50,7 +50,7 @@ Model::Model(const std::string &directory, const std::string &baseFilename)
             //
             // Load the texture
             //
-            activeMaterial->texture = Utility::MakeOpenGLBitmap(directory + textureName);
+            activeMaterial->texture = textureStore.GetTexture(directory + textureName);
         }
     }
 
