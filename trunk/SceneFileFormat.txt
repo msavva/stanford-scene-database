@@ -1,0 +1,33 @@
+
+---- Scene File Format
+
+The scene file format is meant to be very easy to parse ASCII.
+For completeness we document it here; see Scene.cpp for a sample parser, and databaseSample\scenes\SceneA.txt for a sample scene.
+
+The first three lines are:
+StanfordSceneDatabase
+version <major version>.<minor version>
+modelCount <N>
+
+Then N "newModel X Y" commands follow. X is the model index and Y is the model ID. This model ID is used to refer to
+models in the fields and models folders. It is also used by Google 3D Warehouse, using the "mid" tag:
+http://sketchup.google.com/3dwarehouse/details?mid=27cbe370f005ea9ef0524a49202e8ac9
+
+All lines after a "newModel" line refer to the most recent "newModel". The possible fields are:
+
+"parentIndex X": X is the model index of this objects parent. -1 if this model is the root node.
+
+"children <list of integers>": the model indices of all the children of this node.
+
+"parentContactPosition X Y Z": the coordinates of the location on the parent model where this object is attached.
+
+"parentContactNormal X Y Z": the surface normal of the location on the parent model where this object is attached.
+
+"parentOffset X Y Z": an additional translation offset specified by the artist relative to parentContactPosition.
+                      This is (0, 0, 0) for almost all objects; it is non-zero for floating or hovering objects.
+
+"transform <list of 16 floats>": The matrix transform from the local coordinate frame specified in the model's
+								 *.obj to the world coordinates of the scene.
+
+parentContactPosition, parentContactNormal, and parentOffset are not needed to just render the scene; the "transform" field
+already incorporates these terms.
