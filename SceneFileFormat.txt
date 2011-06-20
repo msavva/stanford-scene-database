@@ -2,7 +2,7 @@
 ---- Scene File Format
 
 The scene file format is meant to be very easy to parse ASCII.
-For completeness we document it here; see Scene.cpp for a sample parser, and databaseSample\scenes\SceneA.txt for a sample scene.
+For completeness we document it here; see Scene.cpp for a sample parser, and databaseSample\scenes\sceneTest.txt for a sample scene.
 
 The first three lines are:
 StanfordSceneDatabase
@@ -10,7 +10,7 @@ version <major version>.<minor version>
 modelCount <N>
 
 Then N "newModel X Y" commands follow. X is the model index and Y is the model ID. This model ID is used to refer to
-models in the fields and models folders. It is also used by Google 3D Warehouse, using the "mid" tag:
+models in the field and model folders. It is also used by Google 3D Warehouse, using the "mid" tag:
 http://sketchup.google.com/3dwarehouse/details?mid=27cbe370f005ea9ef0524a49202e8ac9
 
 All lines after a "newModel" line refer to the most recent "newModel". The possible fields are:
