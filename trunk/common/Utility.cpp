@@ -117,30 +117,46 @@ std::vector<float> Utility::StringToFloatList(const std::string &s, const std::s
 
 GLuint Utility::MakeOpenGLBitmap(const std::string &filename)
 {
-	FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
-	FIBITMAP *dib(0);
-	BYTE* bits(0);
-	unsigned int width(0), height(0);
+    FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
+	FIBITMAP *dib = NULL;
+	BYTE* bits = NULL;
+	unsigned int width = 0, height = 0;
 
 	fif = FreeImage_GetFileType(filename.c_str(), 0);
 	if (fif == FIF_UNKNOWN)
 		fif = FreeImage_GetFIFFromFilename(filename.c_str());
 	if (fif == FIF_UNKNOWN)
-		return false;
+		return 0;
 
 	if (FreeImage_FIFSupportsReading(fif))
 		dib = FreeImage_Load(fif, filename.c_str());
 	if (!dib)
-		return false;
+		return 0;
 
-	bits = FreeImage_GetBits(dib);
-	width = FreeImage_GetWidth(dib);
-	height = FreeImage_GetHeight(dib);
+    FIBITMAP *convertedDib;
+    if(FreeImage_GetBPP(dib) == 24)
+    {
+        convertedDib = dib;
+    }
+    else
+    {
+        convertedDib = FreeImage_ConvertTo24Bits(dib);
+    }
+
+    bits = FreeImage_GetBits(convertedDib);
+	width = FreeImage_GetWidth(convertedDib);
+	height = FreeImage_GetHeight(convertedDib);
 
     GLuint texture;
     glGenTextures( 1, &texture );
     glBindTexture(GL_TEXTURE_2D, texture);
+
     glTexImage2D(GL_TEXTURE_2D, 0, 3, width, height, 0, GL_BGR_EXT, GL_UNSIGNED_BYTE, bits);
+
+    if(FreeImage_GetBPP(dib) != 24)
+    {
+        FreeImage_Unload(convertedDib);
+    }
 
 	FreeImage_Unload(dib);
 
