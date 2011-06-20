@@ -2,13 +2,16 @@
 // SceneViewer.cpp
 //
 
-#include "Common.h"
+#include "../common/Common.h"
 #include "sceneViewer.h"
 
 void SceneViewer::Init()
 {
-    _params.Init("parameters.txt");
-
+#ifdef WIN32
+	_params.Init("parameters.txt");
+#else
+	_params.Init("bin/parameters.txt");
+#endif
     std::cout << "Usage: Modify parameters.txt to change which scene is loaded\n";
 
     _scene.Load(_params, _params.defaultScene, _assets);

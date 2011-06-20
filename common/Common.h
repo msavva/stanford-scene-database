@@ -16,7 +16,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "glut.h"
+#include "FreeImage.h"
+#include <GL/glut.h>
 
 //
 // Math

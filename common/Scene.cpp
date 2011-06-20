@@ -9,6 +9,10 @@ void Scene::Load(const Parameters &params, const std::string &filename, Assets &
     std::string sceneFilename = params.databaseDirectory + "scenes/" + filename + ".txt";
     std::cout << "Loading Scene: " << sceneFilename << '\n';
     auto lines = Utility::GetFileLines(sceneFilename, 2);
+    if (lines.empty())
+    {
+        std::cout << "Scene file not found: " << sceneFilename << '\n';
+    }
     if(lines[0] != "StanfordSceneDatabase" || lines[1] != "version 1.0")
     {
         std::cout << "This is not a valid scene file\n";

@@ -2,7 +2,7 @@
 // ModelViewer.cpp
 //
 
-#include "Common.h"
+#include "../common/Common.h"
 #include "modelViewer.h"
 
 void ModelViewer::Init()

@@ -2,7 +2,7 @@
 // SceneViewer.h
 //
 
-#include "Common.h"
+#include "../common/Common.h"
 
 class SceneViewer
 {

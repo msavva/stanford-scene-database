@@ -50,7 +50,7 @@ Model::Model(const std::string &directory, const std::string &baseFilename)
             //
             // Load the texture
             //
-            activeMaterial->texture = Utility::MakeOpenGLBitmap(directory + textureName);
+            activeMaterial->texture = Utility::MakeOpenGLBitmapFI(directory + textureName);
         }
     }
 
