@@ -18,4 +18,6 @@ namespace Utility
 
     void ExecuteCommand(const char *command);
     GLuint MakeOpenGLBitmap(const std::string &filename);
+    GLuint MakeOpenGLBitmapFI(const std::string &filename);
+    void checkGLError(std::string str);
 };

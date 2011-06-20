@@ -25,6 +25,8 @@ std::vector<std::string> Utility::GetFileLines(const std::string &filename, unsi
         std::getline(file, curLine);
         if(!file.fail() && curLine.length() >= minLineLength)
         {
+        	if (curLine.at(curLine.length()-1) == '\r')
+        		curLine.substr(0,curLine.size()-1);
             result.push_back(curLine);
         }
     }
@@ -113,12 +115,44 @@ std::vector<float> Utility::StringToFloatList(const std::string &s, const std::s
     return result;
 }
 
+GLuint Utility::MakeOpenGLBitmapFI(const std::string &filename)
+{
+	FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
+	FIBITMAP *dib(0);
+	BYTE* bits(0);
+	unsigned int width(0), height(0);
+
+	fif = FreeImage_GetFileType(filename.c_str(), 0);
+	if (fif == FIF_UNKNOWN)
+		fif = FreeImage_GetFIFFromFilename(filename.c_str());
+	if (fif == FIF_UNKNOWN)
+		return false;
+
+	if (FreeImage_FIFSupportsReading(fif))
+		dib = FreeImage_Load(fif, filename.c_str());
+	if (!dib)
+		return false;
+
+	bits = FreeImage_GetBits(dib);
+	width = FreeImage_GetWidth(dib);
+	height = FreeImage_GetHeight(dib);
+
+    GLuint texture;
+    glGenTextures( 1, &texture );
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexImage2D(GL_TEXTURE_2D, 0, 3, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, bits);
+
+	FreeImage_Unload(dib);
+
+	return texture;
+}
+
 GLuint Utility::MakeOpenGLBitmap(const std::string &filename)
 {
 #ifdef WIN32
     std::string commandLine = "../windows/exe/convert.exe " + filename + " temp.bmp";
 #else
-    std::string commandLine = "convert.exe " + filename + " temp.bmp";
+    std::string commandLine = "convert " + filename + " temp.bmp";
 #endif
     Utility::ExecuteCommand(commandLine.c_str());
 
@@ -275,3 +309,10 @@ void Utility::ExecuteCommand(const char *command)
     system(command);
 }
 #endif
+
+void Utility::checkGLError(std::string str)
+{
+	GLenum error;
+	if ((error = glGetError()) != GL_NO_ERROR)
+		printf("GL Error: %s (%s)\n", gluErrorString(error), str.c_str());
+}
