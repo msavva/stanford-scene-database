@@ -16,8 +16,6 @@ namespace Utility
     std::vector<int> StringToIntegerList(const std::string &s, const std::string &prefix);
     std::vector<float> StringToFloatList(const std::string &s, const std::string &prefix);
 
-    void ExecuteCommand(const char *command);
     GLuint MakeOpenGLBitmap(const std::string &filename);
-    GLuint MakeOpenGLBitmapFI(const std::string &filename);
     void checkGLError(std::string str);
 };
