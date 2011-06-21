@@ -16,7 +16,7 @@ void ModelViewer::Init()
 
     _database.Init(_params);
 
-    std::cout << "\nLoading database from " << _params.databaseDirectory << '\n\n';
+    std::cout << "\nLoading database from " << _params.databaseDirectory << '\n';
 
     _modelList = _database.TextQuery(_params.textQuery);
 
@@ -123,7 +123,7 @@ void ModelViewer::SpecialKeyPress(int key)
     {
     case GLUT_KEY_RIGHT:
         _activeModelIndex++;
-        if(_activeModelIndex == _modelList.size())
+        if(_activeModelIndex == (int)_modelList.size())
         {
             _activeModelIndex = 0;
         }
@@ -134,7 +134,7 @@ void ModelViewer::SpecialKeyPress(int key)
         _activeModelIndex--;
         if(_activeModelIndex == -1)
         {
-            _activeModelIndex = _modelList.size() - 1;
+            _activeModelIndex = (int)_modelList.size() - 1;
         }
         _activeModel = _assets.GetModel(_params, _modelList[_activeModelIndex]->hash);
         WriteModelInfo();
