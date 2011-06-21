@@ -1,1 +1,0 @@
-convert.exe is built from ImageMagick-6.6.7-Q16
