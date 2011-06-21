@@ -26,7 +26,7 @@ std::vector<std::string> Utility::GetFileLines(const std::string &filename, unsi
         if(!file.fail() && curLine.length() >= minLineLength)
         {
         	if (curLine.at(curLine.length()-1) == '\r')
-        		curLine.substr(0,curLine.size()-1);
+        		curLine = curLine.substr(0,curLine.size()-1);
             result.push_back(curLine);
         }
     }
