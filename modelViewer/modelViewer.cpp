@@ -12,7 +12,7 @@ void ModelViewer::Init()
     std::cout << "Usage: Modify textQuery in parameters.txt to change the order models appear.\n";
     std::cout << "       Use textQuery=@ to display models in random order.\n";
 
-    _camera.Reset(Vec3f(-27.753f, -74.510f, 40.714f), Vec3f(0.15484311f, 0.47713223f, 0.86508425f), Vec3f(0.0f, 0.0f, 0.0f));
+    _camera.Reset(Vec3f(-27.753f, -74.510f, 40.714f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 0.0f, 0.0f));
 
     _database.Init(_params);
 
@@ -53,7 +53,7 @@ void ModelViewer::MouseDown(int button, int x, int y)
 
 void ModelViewer::MouseMove(int x, int y)
 {
-    const float angleScale = 0.02f;
+    const float angleScale = 0.01f;
     const float moveScale = 1.0f;
 
     const int mouseDiffX = x - _mouseX;
