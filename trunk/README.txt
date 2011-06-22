@@ -2,7 +2,7 @@
 ---- Stanford Scene Database
 
 This project provides a barebones interface that demonstrates how to parse scene and model files in our scene database.
-Our focus is on interior scenes, and our database does not contain outdoor environments.
+Our focus is on interior scenes so our database does not contain outdoor environments.
 Most scenes are rooms one might expect to find in a house or office building.
 
 Although we experimented with using scenes users have uploaded to Google 3D Warehouse, we concluded it was not fruitful to pursue this because the segmentation quality, tagging quality, and model density of scenes on Google Warehouse are extremely poor.
@@ -21,7 +21,7 @@ Below is a list of steps describing the process we used to build our model and s
 
 1. Construct an approximate list of tags commonly found in interior environments.
 2. Use Google 3D Warehouse's search engine to acquire SketchUp files for the first 20 pages of results for each tag.
-3. Acquire a name and set of tags for each models from its HTML page.
+3. Acquire a name and set of tags for each model from its HTML page.
 4. Go through each SketchUp model, and manually select all the "isolated objects".
 5. Use SketchUp to convert all the selected models to COLLADA (we then further convert them into Wavefront .obj files and a binary format used by SceneStudio).
 6. Have many people use this model database to create interior scenes using SceneStudio, recording all their text search queries.
@@ -30,7 +30,7 @@ Below is a list of steps describing the process we used to build our model and s
 Here "isolated object" is used to reject models with undesireable properties such as the following:
  - Multiple objects: ex. http://sketchup.google.com/3dwarehouse/details?mid=ea7182868569cafa4e6c6248f210bd8b
  - Supporting geometry: ex. http://sketchup.google.com/3dwarehouse/details?mid=c8a32ee82a91795511fc2b865c2a185b
-We somtimes accepted models that contained multiple objects, if the collection is also meaningful. Examples include:
+We sometimes accepted models that contained multiple objects, if the collection is also meaningful. Examples include:
  - Fruit bowl: http://sketchup.google.com/3dwarehouse/details?mid=c5a2f2b387962f95efa86b03d795ce7f
  - Rows of books: http://sketchup.google.com/3dwarehouse/details?mid=45e888388c36cace7c6ab6f4a65805ac
 
@@ -62,11 +62,11 @@ Here is an approximate size estimate for the database (this may be out of date):
 
 **** 3. Code Structure
 
-This code all uses GLUT and is setup to compile with Visual Studio and gcc.
+This code uses GLUT and is setup to compile with Visual Studio and g++.
 The project uses freeimage to read JPEG images. We have included a precompiled version of GLUT and freeimage for Visual Studio.
-Let us know you encounter any other trouble compiling the code on Linux or Windows.
-
-There are two projects, modelViewer and sceneViewer.
+There are two projects: modelViewer and sceneViewer.
+A Visual Studio solution is provided in the windows/vs2010 subdirectory. Directories named "Default" in the root, in sceneViewer and in modelViewer contain makefiles and Eclipse+CDT project files for shared library code, sceneViewer and modelViewer code correspondingly. The "makeAll" script compiles the shared code into a library installed at "/usr/local/lib/libstanford-scene-database.so" and then creates the sceneViewer and modelViewer binaries in the bin directory.
+Let us know if you encounter any trouble compiling the code on Linux or Windows.
 These projects can be configured by modifying bin/parameters.txt.
 Changing databaseDirectory can be used to switch between the "sample", "observed", and "full" databases.
 
