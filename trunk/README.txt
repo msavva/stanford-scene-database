@@ -5,11 +5,11 @@ This project provides a barebones interface that demonstrates how to parse scene
 Our focus is on interior scenes, and our database does not contain outdoor environments.
 Most scenes are rooms one might expect to find in a house or office building.
 
-Although we experimented with using scenes directly from Google 3D Warehouse, we concluded it was not fruitful to pursue this because the segmentation quality, tagging quality, and model density of scenes on Google Warehouse are extremely poor.
+Although we experimented with using scenes users have uploaded to Google 3D Warehouse, we concluded it was not fruitful to pursue this because the segmentation quality, tagging quality, and model density of scenes on Google Warehouse are extremely poor.
 Instead we build a model database using Google 3D Warehouse and have users model new scenes using our own interior modeling program, which we call SceneStudio:
 http://graphics.stanford.edu/projects/SceneStudio/
-This program uses a well-tagged model database to generate scenes with very good segmentations and a well-tiered scene graph.
-Feel free to model new scenes for us and upload them to the database.
+This program uses Google's well-tagged model database to generate scenes with very good segmentations and a well-tiered scene graph.
+Feel free to model new scenes and upload them to the database.
 At the moment SceneStudio is Windows only, although the code in this project is cross-platform.
 
 Our collection of scenes is useful for understanding the relationships between objects and related avenues of research that focus on understanding a collection of objects as a whole in addition to properties of isolated objects.
@@ -49,9 +49,9 @@ There are four folders in the database:
 
 We provide three different databases:
 "databaseSample" contains a single scene and is meant for testing purposes (~11MB). This is part of the svn checkout.
-"databaseObserved" contains all scenes users have modeled, but only those models in the database that occur in at least one scene (~2.7GB, uncompressed). You can download this here:
-<site>
-"databaseFull" contains all scenes users have modeled, and all models in the model database (~20GB, uncompressed). 
+"databaseObserved" contains all scenes users have modeled, but only those models in the database that occur in at least one scene (~3GB uncompressed, 500MB compressed). You can download this here:
+http://graphics.stanford.edu/projects/SceneStudio/databaseObserved.zip
+"databaseFull" contains all scenes users have modeled, and all models in the model database (~20GB, uncompressed).
 
 Here is an approximate size estimate for the database (this may be out of date):
 28,985 models downloaded from Google Warehouse
