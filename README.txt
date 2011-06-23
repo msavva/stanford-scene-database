@@ -6,11 +6,11 @@ Our focus is on interior scenes so our database does not contain outdoor environ
 Most scenes are rooms one might expect to find in a house or office building.
 
 Although we experimented with using scenes users have uploaded to Google 3D Warehouse, we concluded it was not fruitful to pursue this because the segmentation quality, tagging quality, and model density of scenes on Google Warehouse are extremely poor.
-Instead we build a model database using Google 3D Warehouse and have users model new scenes using our own interior modeling program, which we call SceneStudio:
+Instead we build a model database using Google 3D Warehouse and have users model new scenes using our own interior modeling program:
 http://graphics.stanford.edu/projects/SceneStudio/
 This program uses Google's well-tagged model database to generate scenes with very good segmentations and a well-tiered scene graph.
 Feel free to model new scenes and upload them to the database.
-At the moment SceneStudio is Windows only, although the code in this project is cross-platform.
+At the moment our modeling program is Windows only, although the code in this project is cross-platform.
 
 Our collection of scenes is useful for understanding the relationships between objects and related avenues of research that focus on understanding a collection of objects as a whole in addition to properties of isolated objects.
 We converted the model database and scene description files into easily parsed ASCII formats in an attempt to make it easy for other researchers to use our database in their own work.
@@ -23,8 +23,8 @@ Below is a list of steps describing the process we used to build our model and s
 2. Use Google 3D Warehouse's search engine to acquire SketchUp files for the first 20 pages of results for each tag.
 3. Acquire a name and set of tags for each model from its HTML page.
 4. Go through each SketchUp model, and manually select all the "isolated objects".
-5. Use SketchUp to convert all the selected models to COLLADA (we then further convert them into Wavefront .obj files and a binary format used by SceneStudio).
-6. Have many people use this model database to create interior scenes using SceneStudio, recording all their text search queries.
+5. Use SketchUp to convert all the selected models to COLLADA (we then further convert them into Wavefront .obj files and a binary format used by our modeling program).
+6. Have many people use this model database to create interior scenes using our modeling program, recording all their text search queries.
 7. Use these search queries to construct a new list of tags, and repeat steps 2-6 several times, until we have most of the relevant models on Google 3D Warehouse and many scenes containing them.
 
 Here "isolated object" is used to reject models with undesireable properties such as the following:

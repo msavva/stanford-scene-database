@@ -1,6 +1,1 @@
-make linux build infrastructure: test under Mac, Cygwin, Linux
-
-Write modelViewer and sceneViewer interfaces
-  - toggle through scenes
-  - scene screenshots?
-  - rename scenes
+Test linux build infrastructure under Mac, Cygwin
