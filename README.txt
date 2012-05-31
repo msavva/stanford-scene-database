@@ -47,7 +47,7 @@ There are four folders in the database:
 		   See SceneFileFormat.txt for a description of the format.
  - fields: A list of the name and tags for each model, indexed by Google model ID.
 
-We provide three different databases:
+We provide three different databases: <THIS IS OUT OF DATE>
 "databaseSample" contains a single scene and is meant for testing purposes (~11MB). This is part of the svn checkout.
 "databaseObserved" contains all scenes users have modeled, but only those models in the database that occur in at least one scene (~3GB uncompressed, 500MB compressed). You can download this here:
 http://graphics.stanford.edu/projects/SceneStudio/databaseObserved.zip
