@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sceneViewer", "sceneViewer.vcxproj", "{C8CCB68A-E14A-4E32-803B-92362E9695DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE5FEC61-00A8-4D02-B0EC-E7E670295199}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\bin\parameters.txt = ..\..\bin\parameters.txt
+		..\..\README.txt = ..\..\README.txt
+		..\..\TODO.txt = ..\..\TODO.txt
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "modelViewer", "modelViewer.vcxproj", "{F292308A-873D-41FB-A2FE-DFA78FF5FB26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8CCB68A-E14A-4E32-803B-92362E9695DA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C8CCB68A-E14A-4E32-803B-92362E9695DA}.Debug|Win32.Build.0 = Debug|Win32
+		{C8CCB68A-E14A-4E32-803B-92362E9695DA}.Release|Win32.ActiveCfg = Release|Win32
+		{C8CCB68A-E14A-4E32-803B-92362E9695DA}.Release|Win32.Build.0 = Release|Win32
+		{F292308A-873D-41FB-A2FE-DFA78FF5FB26}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F292308A-873D-41FB-A2FE-DFA78FF5FB26}.Debug|Win32.Build.0 = Debug|Win32
+		{F292308A-873D-41FB-A2FE-DFA78FF5FB26}.Release|Win32.ActiveCfg = Release|Win32
+		{F292308A-873D-41FB-A2FE-DFA78FF5FB26}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
