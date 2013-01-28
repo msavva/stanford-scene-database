@@ -1,0 +1,18 @@
+Uploading 1046b3d5a381a8902e5ae31c6c631a39
+Clearing annoying save dialog
+Waiting for file load to finish
+Clearing remove unused objects window
+Saving model
+Waiting for upload page to load
+Clicking to set focus on title
+Inputting fields
+Waiting for upload to finish
+Exiting browser
+Uploading 1049af17ad48aaeb6d41c42f7ade8c8
+Clearing annoying save dialog
+Waiting for file load to finish
+Clearing remove unused objects window
+Saving model
+Waiting for upload page to load
+Clicking to set focus on title
+Inputting fields
