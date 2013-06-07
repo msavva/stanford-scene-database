@@ -1,0 +1,10 @@
+import os
+
+Import('env')
+
+clonedEnv = env.Clone()
+clonedEnv.Append(RPATH = env.Literal(os.path.join('\\$$ORIGIN', os.pardir, 'lib')))
+clonedEnv.Append(LIBS=['common'], LIBPATH=['#common'])
+
+sceneViewer = clonedEnv.Program('sceneViewer', source=['main.cpp', 'sceneViewer.cpp'])
+clonedEnv.Install(dir = "#bin", source = sceneViewer)

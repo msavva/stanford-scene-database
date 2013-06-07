@@ -1,0 +1,10 @@
+import os
+
+Import('env')
+
+clonedEnv = env.Clone()
+clonedEnv.Append(RPATH = env.Literal(os.path.join('\\$$ORIGIN', os.pardir, 'lib')))
+clonedEnv.Append(LIBS=['common'], LIBPATH=['#common'])
+
+modelViewer = clonedEnv.Program('modelViewer', source=['main.cpp', 'modelViewer.cpp'])
+clonedEnv.Install(dir = "#bin", source = modelViewer)

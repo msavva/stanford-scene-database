@@ -1,0 +1,11 @@
+Import('env')
+
+common_objects = [
+    'Assets.cpp', 'Camera.cpp', 'Matrix4.cpp',
+    'Mesh.cpp', 'Model.cpp', 'ModelDatabase.cpp',
+    'ModelInstance.cpp', 'Parameters.cpp', 'Scene.cpp',
+    'Utility.cpp'
+]
+
+libcommon = env.SharedLibrary(target = 'common', source = common_objects)
+env.Install(dir = "#lib", source = libcommon)
