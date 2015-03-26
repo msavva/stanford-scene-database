@@ -65,7 +65,7 @@ Here is an approximate size estimate for the database (this may be out of date):
 This code uses GLUT and is setup to compile with Visual Studio and g++.
 The project uses freeimage to read JPEG images. We have included a precompiled version of GLUT and freeimage for Visual Studio.
 There are two projects: modelViewer and sceneViewer.
-A Visual Studio solution is provided in the windows/vs2010 subdirectory. Directories named "Default" in the root, in sceneViewer and in modelViewer contain makefiles and Eclipse+CDT project files for shared library code, sceneViewer and modelViewer code correspondingly. The "makeAll" script compiles the shared code into a library installed at "/usr/local/lib/libstanford-scene-database.so" and then creates the sceneViewer and modelViewer binaries in the bin directory.
+A Visual Studio solution is provided in the windows/vs2010 subdirectory. For other platforms please use the SCons (www.scons.org) build system to compile. The sceneViewer and modelViewer binaries will be copied to the bin directory.
 Let us know if you encounter any trouble compiling the code on Linux or Windows.
 These projects can be configured by modifying bin/parameters.txt.
 Changing databaseDirectory can be used to switch between the "sample", "observed", and "full" databases.
