@@ -1,0 +1,1 @@
+Code for interfacing with the Stanford Scene Database. Compiles under Mac/Linux/Windows.
